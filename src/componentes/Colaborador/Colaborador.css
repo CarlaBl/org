@@ -1,6 +1,7 @@
 .colaborador{
     width: 280px;
     margin-bottom: 24px;
+    position: relative;
 }
 .colaborador .encabezado{
     background-color: #F0F0F0;
@@ -20,5 +21,9 @@
     padding-bottom: 40px;
     min-height: 100px;
     font-family: 'Montserrat',sans-serif;
-    
+}
+.eliminar{
+    position: absolute;
+    right: -15px;
+    top: -15px;
 }
