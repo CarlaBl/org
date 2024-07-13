@@ -4,10 +4,18 @@ import Encabezado from './componentes/Encabezado/Encabezado';
 import Formulario from './componentes/Formulario/Formulario';
 import MiOrg from './componentes/MiOrg';
 import Equipo from './componentes/Equipo';
+import Footer from './componentes/Footer';
 
 function App() {
   const [mostrarFormulario, actualizarMostrar]= useState(false)
-  const [colaboradores, actualizarColaboradores]= useState([])
+  const [colaboradores, actualizarColaboradores]= useState([{
+    equipo:"Front End",
+    foto: "https://github.com/CarlaBl.png",
+    nombre: "Carla Blacio",
+    puesto: "Estudiante"
+  }
+
+  ])
 
   //Ternario --> condicion ? seMuestra : noSemuestra
   // condicion && seMuestra
@@ -83,6 +91,8 @@ function App() {
           />
         )
       }
+
+      <Footer/>
 
     </div>
   );
