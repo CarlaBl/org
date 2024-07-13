@@ -11,5 +11,10 @@
     border-bottom:4px solid;
     display: inline-block;
     padding-bottom: 8px;
-
+}
+.colaboradores{
+    display: flex;
+    justify-content:space-evenly;
+    flex-wrap: wrap;
+    
 }
