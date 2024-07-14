@@ -98,6 +98,11 @@ function App() {
     actualizarEquipos(equiposActualizados)
 
   }
+  //crear equipo
+  const crearEquipo = (nuevoEquipo)=>{
+    actualizarEquipos([...equipos, {...nuevoEquipo, id:uuid()}])
+
+  }
 
   return (
     <div>
@@ -106,6 +111,7 @@ function App() {
       mostrarFormulario && <Formulario 
       equipos={equipos.map( (equipo)=> equipo.titulo)}
       registrarColaborador = {registrarColaborador}
+      crearEquipo ={crearEquipo}
       /> 
       }
 
