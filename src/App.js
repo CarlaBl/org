@@ -8,14 +8,15 @@ import Equipo from './componentes/Equipo';
 import Footer from './componentes/Footer';
 
 function App() {
-  const [mostrarFormulario, actualizarMostrar] = useState(true)
+  const [mostrarFormulario, actualizarMostrar] = useState(false)
   const [colaboradores, actualizarColaboradores] = useState([
   {
     id:uuid(),
     equipo:"Front End",
     foto: "https://github.com/CarlaBl.png",
     nombre: "Carla Blacio",
-    puesto: "Estudiante"
+    puesto: "Estudiante",
+    fav:false
   }
 
   ])
@@ -100,8 +101,21 @@ function App() {
   }
   //crear equipo
   const crearEquipo = (nuevoEquipo)=>{
+    console.log(nuevoEquipo);
     actualizarEquipos([...equipos, {...nuevoEquipo, id:uuid()}])
 
+  }
+  //favoritos
+  const like = (id) => {
+    const colaboradoresActualizados = colaboradores.map(
+      (colaborador)=>{
+        if (colaborador.id === id) {
+          colaborador.fav = !colaborador.fac
+        }
+        return colaborador
+      }
+    )
+    actualizarColaboradores(colaboradoresActualizados)
   }
 
   return (
@@ -124,6 +138,7 @@ function App() {
           colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
           eliminarColaborador={eliminarColaborador}
           actualizarColor={actualizarColorEquipo}
+          like = {like}
           />
         )
       }

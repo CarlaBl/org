@@ -1,10 +1,12 @@
 import "./Colaborador.css"
-import { IoIosCloseCircleOutline } from "react-icons/io";
+import { IoIosCloseCircleOutline,IoIosHeart,IoIosHeartEmpty } from "react-icons/io";
 
 const Colaborador = (props) =>{
     //Destructuracion
-    const {nombre, puesto, foto, equipo,id} = props.datos
-    const {colorPrimario,eliminarColaborador}= props
+    const {nombre, puesto, foto, equipo,id,fav} = props.datos
+    const {colorPrimario,eliminarColaborador,like}= props
+
+    //operador ternario -> condicion ? verdadero : falso
 
     return <div className="colaborador">
         <IoIosCloseCircleOutline className="eliminar" onClick={()=> eliminarColaborador(id)}/>
@@ -14,6 +16,7 @@ const Colaborador = (props) =>{
         <div className="info">
             <h4>{nombre}</h4>
             <h5>{puesto}</h5>
+            {fav ? <IoIosHeart color="red" onClick={()=>like(id)}/> : <IoIosHeartEmpty onClick={()=>like(id)} /> }    
         </div>
     </div>
 }
